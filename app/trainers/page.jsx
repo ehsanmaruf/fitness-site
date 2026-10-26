@@ -5,9 +5,9 @@ import Reveal from "@/components/Reveal";
 import { Award, HeartPulse, Salad } from "lucide-react";
 
 export const metadata = {
-  title: "Our Trainers — IRONX Gym Dhaka",
+  title: "Our Trainers — Shanto's Fit n Fine Gym",
   description:
-    "Meet the certified coaches at IRONX Dhaka — specialists in strength, weight loss, muscle gain, CrossFit, nutrition and mobility.",
+    "Meet the certified coaches at Shanto's Fit n Fine Gym — specialists in strength, weight loss, muscle gain, CrossFit, nutrition and mobility.",
 };
 
 const values = [

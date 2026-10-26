@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Send, CheckCircle2 } from "lucide-react";
-import { programs } from "@/lib/data";
+import { programs, site } from "@/lib/data";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -16,9 +16,20 @@ export default function ContactForm() {
 
   const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
+  // Opens WhatsApp with the enquiry pre-filled, addressed to the gym's number.
   const onSubmit = (e) => {
     e.preventDefault();
-    // Front-end demo only — wire this to your email service / API route.
+    const text = [
+      `New enquiry from ${site.name} website`,
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email && `Email: ${form.email}`,
+      `Goal: ${form.goal}`,
+      form.message && `Message: ${form.message}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    window.open(`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
     setSent(true);
   };
 
@@ -27,11 +38,11 @@ export default function ContactForm() {
       <div className="flex flex-col items-center justify-center rounded-2xl border border-volt/40 bg-volt/5 p-12 text-center">
         <CheckCircle2 size={48} className="text-volt" />
         <h3 className="mt-5 font-display text-3xl uppercase text-white">
-          Message Sent!
+          Almost Done!
         </h3>
         <p className="mt-3 max-w-sm text-sm text-white/60">
-          Thanks {form.name.split(" ")[0] || "champ"} — our team will call you on{" "}
-          {form.phone || "your number"} within 24 hours to set up your free trial.
+          Thanks {form.name.split(" ")[0] || "champ"} — WhatsApp has opened with your
+          message. Just tap send there and our team will reply on WhatsApp.
         </p>
         <button
           onClick={() => setSent(false)}
@@ -90,7 +101,7 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" className="btn-primary mt-7 w-full">
-        Send Message <Send size={16} />
+        Send on WhatsApp <Send size={16} />
       </button>
     </form>
   );

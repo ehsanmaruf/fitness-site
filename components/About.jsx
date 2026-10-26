@@ -5,10 +5,10 @@ import { Check } from "lucide-react";
 import Reveal from "./Reveal";
 
 const points = [
-  "3,000+ sq. ft. training floor",
-  "Premium imported equipment",
-  "Certified, caring coaches",
-  "Separate ladies training hours",
+  "Fully air-conditioned gym",
+  "Every day steam bath & shower",
+  "Full-time instructors",
+  "Separate ladies hour",
 ];
 
 export default function About() {
@@ -20,8 +20,8 @@ export default function About() {
           <div className="relative">
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80"
-                alt="Inside IRONX gym"
+                src="/images/gym-floor.jpg"
+                alt="Inside Shanto's Fit n Fine Gym"
                 className="h-[520px] w-full object-cover"
               />
             </div>
@@ -32,9 +32,9 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="absolute -bottom-8 -left-6 hidden rounded-2xl border border-white/10 bg-ink-800 p-6 shadow-2xl sm:block"
             >
-              <p className="font-display text-5xl text-volt">8+</p>
-              <p className="mt-1 max-w-[120px] text-xs uppercase tracking-wider text-white/60">
-                Years transforming Dhaka
+              <p className="font-display text-5xl text-volt">M &amp; W</p>
+              <p className="mt-1 max-w-[140px] text-xs uppercase tracking-wider text-white/60">
+                Complete fitness for men &amp; women
               </p>
             </motion.div>
           </div>
@@ -53,10 +53,10 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-white/60">
-              At IRONX we believe fitness is built, not bought. Since 2018
-              we&apos;ve helped thousands of people across Dhaka lose weight, gain
-              muscle and rediscover what their bodies can do. Every plan is
-              personal, every rep is coached, and every win is celebrated.
+              Shanto&apos;s Fit n Fine Gym is a complete fitness solution for men
+              and women at Morol Bazar, Nadda, Dhaka. Whether you want to lose
+              weight, gain muscle or simply get fit, our full-time instructors,
+              latest equipment and personal diet plans will get you there.
             </p>
           </Reveal>
 

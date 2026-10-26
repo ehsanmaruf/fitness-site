@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Zap } from "lucide-react";
-import { packages } from "@/lib/data";
+import { Check, Zap, BadgePercent } from "lucide-react";
+import { packages, facilities } from "@/lib/data";
 import Reveal from "./Reveal";
 
 export default function Packages({ showHeader = true }) {
@@ -24,12 +24,24 @@ export default function Packages({ showHeader = true }) {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/55">
-                No hidden fees, no lock-in tricks. Choose the plan that fits your
-                goals — the longer you commit, the more you save.
+                No hidden fees. Every plan includes all member facilities — the
+                longer you commit, the more you save.
               </p>
             </Reveal>
           </div>
         )}
+
+        <Reveal>
+          <div className="mx-auto mb-12 flex max-w-2xl items-center gap-4 rounded-2xl border border-volt/50 bg-volt/10 px-6 py-5">
+            <BadgePercent size={32} className="shrink-0 text-volt" />
+            <p className="text-sm leading-relaxed text-white/85 sm:text-base">
+              <span className="font-heading font-semibold uppercase tracking-wider text-volt">
+                Special discounts available!
+              </span>{" "}
+              Visit our gym for special discounts on every membership package.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {packages.map((pkg, i) => (
@@ -37,12 +49,12 @@ export default function Packages({ showHeader = true }) {
               <article
                 className={`relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-300 ${
                   pkg.highlight
-                    ? "border-volt bg-gradient-to-b from-volt/10 to-ink-800 shadow-[0_0_60px_-20px_rgba(198,255,46,0.6)]"
+                    ? "gradient-border border-transparent bg-gradient-to-b from-volt/10 to-ink-800 shadow-[0_0_60px_-20px_rgba(78,168,222,0.6)] hover:-translate-y-2"
                     : "border-white/10 bg-ink-800/50 hover:-translate-y-1 hover:border-white/25"
                 }`}
               >
                 {pkg.highlight && (
-                  <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-volt px-4 py-1 text-[11px] font-bold uppercase tracking-wider text-ink-950">
+                  <span className="bg-brand-gradient absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full px-4 py-1 text-[11px] font-bold uppercase tracking-wider text-ink-950">
                     <Zap size={12} fill="currentColor" strokeWidth={0} /> Best Value
                   </span>
                 )}
@@ -52,7 +64,7 @@ export default function Packages({ showHeader = true }) {
                 </h3>
 
                 <div className="mt-4 flex items-end gap-1">
-                  <span className="font-display text-5xl text-volt">৳{pkg.price}</span>
+                  <span className="text-gradient font-display text-5xl">৳{pkg.price}</span>
                 </div>
                 <p className="mt-1 text-xs uppercase tracking-wider text-white/45">
                   {pkg.period}
@@ -71,7 +83,7 @@ export default function Packages({ showHeader = true }) {
                   href="/contact"
                   className={`mt-8 inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-300 ${
                     pkg.highlight
-                      ? "bg-volt text-ink-950 hover:bg-white"
+                      ? "bg-brand-gradient text-ink-950 hover:shadow-[0_10px_40px_-8px_rgba(139,124,246,0.7)]"
                       : "border border-white/20 text-white hover:border-volt hover:text-volt"
                   }`}
                 >
@@ -82,11 +94,24 @@ export default function Packages({ showHeader = true }) {
           ))}
         </div>
 
-        <Reveal delay={0.1}>
-          <p className="mt-10 text-center text-xs text-white/40">
-            All packages include locker &amp; shower access. Personal-training add-ons
-            available on request. Prices in Bangladeshi Taka (BDT).
-          </p>
+        {/* Facilities */}
+        <Reveal>
+          <div className="mx-auto mt-16 max-w-4xl text-center">
+            <h3 className="font-display text-3xl uppercase text-white sm:text-4xl">
+              Facilities For <span className="text-volt">Every Member</span>
+            </h3>
+            <ul className="mt-8 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-3">
+              {facilities.map((f) => (
+                <li key={f} className="flex items-center gap-3 text-sm text-white/75">
+                  <Check size={16} className="shrink-0 text-volt" strokeWidth={3} />
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-xs text-white/40">
+              Prices in Bangladeshi Taka (BDT). Visit our gym for special discounts.
+            </p>
+          </div>
         </Reveal>
       </div>
     </section>

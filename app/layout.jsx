@@ -1,18 +1,23 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollProgress from "@/components/ScrollProgress";
+import MotionProvider from "@/components/MotionProvider";
 
 export const metadata = {
-  title: "IRONX — Gym & Fitness Club in Dhaka",
+  title: "Shanto's Fit n Fine Gym — Gym & Fitness in Nadda, Dhaka",
   description:
-    "IRONX is a premium gym and fitness club in Dhaka. Strength training, weight loss, muscle gain, CrossFit, personal training and more. Join and forge your best self.",
+    "Shanto's Fit n Fine Gym — a complete fitness solution for men & women at Morol Bazar, Nadda, Dhaka. Weight loss, weight gain, body building, steam bath, massage and diet plans.",
   keywords: [
     "gym Dhaka",
     "fitness club Bangladesh",
     "weight loss",
     "muscle gain",
     "personal training",
-    "CrossFit Dhaka",
+    "gym Nadda",
+    "gym Morol Bazar",
+    "Fit n Fine Gym",
   ],
 };
 
@@ -36,9 +41,13 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="font-sans antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <MotionProvider>
+          <ScrollProgress />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,20 +1,21 @@
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Users, MessageCircle, Navigation } from "lucide-react";
 import { site } from "@/lib/data";
 
 export const metadata = {
-  title: "Contact & Join — IRONX Gym Dhaka",
+  title: "Contact & Join — Shanto's Fit n Fine Gym",
   description:
-    "Get in touch with IRONX Dhaka. Book a free trial, ask about membership packages or visit our Banani location.",
+    "Get in touch with Shanto's Fit n Fine Gym. Book a free trial, ask about membership packages or visit us at Morol Bazar, Nadda, Dhaka.",
 };
 
 const info = [
-  { icon: MapPin, label: "Location", value: site.address },
-  { icon: Phone, label: "Call Us", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
-  { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
-  { icon: Clock, label: "Opening Hours", value: site.hours },
+  { icon: MapPin, label: "Location", value: site.address, href: site.mapUrl },
+  { icon: Phone, label: "Call Us", value: site.phone, href: `tel:+${site.whatsapp}` },
+  { icon: MessageCircle, label: "WhatsApp", value: site.phone, href: `https://wa.me/${site.whatsapp}` },
+  { icon: Clock, label: "Gents Hours", value: site.hours.replace("Gents: ", "") },
+  { icon: Users, label: "Ladies Hour", value: site.ladiesHours.replace("Ladies: ", "") },
 ];
 
 export default function ContactPage() {
@@ -60,6 +61,8 @@ export default function ContactPage() {
                     {item.href ? (
                       <a
                         href={item.href}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel="noopener noreferrer"
                         className="mt-1 block text-sm text-white/80 hover:text-volt"
                       >
                         {item.value}
@@ -73,14 +76,22 @@ export default function ContactPage() {
             </div>
 
             <Reveal delay={0.3}>
-              <div className="mt-6 overflow-hidden rounded-2xl border border-white/10">
+              <div className="relative mt-6 overflow-hidden rounded-2xl border border-white/10">
                 <iframe
-                  title="IRONX location"
-                  src="https://www.google.com/maps?q=Banani,Dhaka&output=embed"
+                  title="Shanto's Fit n Fine Gym location"
+                  src={site.mapEmbed}
                   className="h-64 w-full grayscale"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+                <a
+                  href={site.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary absolute bottom-4 right-4 px-5 py-2.5 text-xs"
+                >
+                  <Navigation size={14} /> Get Directions
+                </a>
               </div>
             </Reveal>
           </div>

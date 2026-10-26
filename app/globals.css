@@ -23,7 +23,7 @@ body {
 }
 
 ::selection {
-  background: #c6ff2e;
+  background: #8b7cf6;
   color: #080808;
 }
 
@@ -39,7 +39,7 @@ body {
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c6ff2e;
+  background: #4ea8de;
 }
 
 @layer components {
@@ -55,8 +55,16 @@ body {
     @apply font-display uppercase leading-[0.92] tracking-tightest;
   }
 
+  .bg-brand-gradient {
+    @apply bg-gradient-to-r from-volt via-volt-400 to-glow;
+  }
+
+  .text-gradient {
+    @apply animate-shimmer bg-gradient-to-r from-volt via-glow to-volt bg-[length:200%_auto] bg-clip-text text-transparent;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-volt px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-ink-950 transition-all duration-300 hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(198,255,46,0.7)];
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-volt via-glow to-volt bg-[length:200%_auto] px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-ink-950 transition-all duration-500 hover:-translate-y-0.5 hover:bg-right hover:shadow-[0_10px_40px_-8px_rgba(139,124,246,0.7)];
   }
 
   .btn-ghost {
@@ -72,7 +80,69 @@ body {
 
 .text-stroke-volt {
   color: transparent;
-  -webkit-text-stroke: 1.5px #c6ff2e;
+  -webkit-text-stroke: 1.5px #4ea8de;
+}
+
+/* Accent words inside big headings get the animated brand gradient */
+.display-heading .text-volt {
+  @apply text-gradient;
+}
+
+/* Animated gradient border (used on the featured package) */
+.gradient-border {
+  position: relative;
+  isolation: isolate;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--angle, 0deg), #4ea8de, #8b7cf6, #4ea8de 40%, transparent 60%, #4ea8de);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-spin 5s linear infinite;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes border-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Mouse-follow spotlight; --x / --y are set by the Spotlight component */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), rgba(78, 168, 222, 0.18), transparent 60%);
+}
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .noise::before {

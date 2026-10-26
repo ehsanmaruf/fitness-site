@@ -39,7 +39,7 @@ export default function Stats() {
       <div className="container-x grid grid-cols-2 gap-8 lg:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
-            <p className="font-display text-5xl text-volt sm:text-6xl">
+            <p className="text-gradient font-display text-5xl sm:text-6xl">
               <Counter value={s.value} suffix={s.suffix} />
             </p>
             <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/50 sm:text-sm">

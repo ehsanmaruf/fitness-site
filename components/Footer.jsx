@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Dumbbell, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { site, navLinks, programs } from "@/lib/data";
 
 export default function Footer() {
@@ -8,16 +8,18 @@ export default function Footer() {
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-volt text-ink-950">
-              <Dumbbell size={20} strokeWidth={2.5} />
-            </span>
-            <span className="font-display text-2xl uppercase tracking-tight">
-              Iron<span className="text-volt">X</span>
+            <img
+              src={site.logo}
+              alt={site.name}
+              className="h-12 w-12 rounded-full object-cover ring-2 ring-volt/60"
+            />
+            <span className="font-display text-2xl uppercase leading-none tracking-tight">
+              Shanto&apos;s <span className="text-volt">Fit n Fine</span>
             </span>
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
-            Dhaka&apos;s home for serious training. Real coaches, real results —
-            whatever your goal, we&apos;ll help you forge it.
+            A complete fitness solution for men &amp; women in Nadda, Dhaka.
+            Air-conditioned gym, every day steam bath and full-time instructors.
           </p>
           <div className="mt-6 flex gap-3">
             {site.socials.map((s) => (
@@ -78,12 +80,12 @@ export default function Footer() {
               <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
             </li>
             <li className="flex gap-3">
-              <Mail size={18} className="mt-0.5 shrink-0 text-volt" />
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </li>
-            <li className="flex gap-3">
               <Clock size={18} className="mt-0.5 shrink-0 text-volt" />
-              <span>{site.hours}</span>
+              <span>
+                {site.hours}
+                <br />
+                {site.ladiesHours}
+              </span>
             </li>
           </ul>
         </div>
@@ -91,7 +93,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/40 sm:flex-row">
-          <p>© {new Date().getFullYear()} IRONX Fitness Club, Dhaka. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Shanto&apos;s Fit n Fine Gym, Dhaka. All rights reserved.</p>
           <p>
             Designed &amp; developed by{" "}
             <a

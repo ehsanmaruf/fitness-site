@@ -8,17 +8,16 @@ import Reveal from "@/components/Reveal";
 import { classes } from "@/lib/data";
 
 export const metadata = {
-  title: "Programs — IRONX Gym Dhaka",
+  title: "Programs — Shanto's Fit n Fine Gym",
   description:
-    "Explore IRONX group classes and training programs: strength, CrossFit, HIIT, functional training, yoga, weight loss and muscle gain.",
+    "Explore Shanto's Fit n Fine Gym group classes and training programs: strength, CrossFit, HIIT, functional training, yoga, weight loss and muscle gain.",
 };
 
 const schedule = [
-  { time: "6:00 AM", class: "Strength & Power", coach: "Rakib", spots: "8 spots" },
-  { time: "8:00 AM", class: "HIIT & Cardio", coach: "Nusrat", spots: "12 spots" },
-  { time: "5:00 PM", class: "CrossFit WOD", coach: "Tanvir", spots: "10 spots" },
-  { time: "7:00 PM", class: "Functional Training", coach: "Rakib", spots: "10 spots" },
-  { time: "9:00 PM", class: "Yoga & Mobility", coach: "Sadia", spots: "15 spots" },
+  { time: "6:30 AM – 2:00 PM", class: "Gents Hour", spots: "Combined" },
+  { time: "2:00 PM – 6:00 PM", class: "Ladies Hour", spots: "Ladies only" },
+  { time: "6:00 PM – 11:00 PM", class: "Gents Hour", spots: "Combined" },
+  { time: "Every Day", class: "Steam Bath", spots: "All members" },
 ];
 
 export default function ClassesPage() {
@@ -83,11 +82,11 @@ export default function ClassesPage() {
         <div className="container-x">
           <div className="mb-12 text-center">
             <Reveal>
-              <span className="eyebrow">[ Daily Timetable ]</span>
+              <span className="eyebrow">[ Gym Timing ]</span>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="display-heading mt-4 text-4xl text-white sm:text-5xl">
-                Sample Class Schedule
+                Open Every Day
               </h2>
             </Reveal>
           </div>
@@ -113,7 +112,7 @@ export default function ClassesPage() {
 
           <div className="mt-10 text-center">
             <Link href="/contact" className="btn-primary">
-              Book A Class <ArrowRight size={18} />
+              Join Now <ArrowRight size={18} />
             </Link>
           </div>
         </div>

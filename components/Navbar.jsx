@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Dumbbell } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { navLinks, site } from "@/lib/data";
 
 export default function Navbar() {
@@ -33,11 +33,13 @@ export default function Navbar() {
     >
       <nav className="container-x flex h-20 items-center justify-between">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-volt text-ink-950 transition-transform duration-300 group-hover:rotate-12">
-            <Dumbbell size={20} strokeWidth={2.5} />
-          </span>
-          <span className="font-display text-2xl uppercase tracking-tight">
-            Iron<span className="text-volt">X</span>
+          <img
+            src={site.logo}
+            alt={site.name}
+            className="h-11 w-11 rounded-full object-cover ring-2 ring-volt/60 transition-transform duration-300 group-hover:rotate-6"
+          />
+          <span className="font-display text-xl uppercase leading-none tracking-tight sm:text-2xl">
+            Shanto&apos;s <span className="text-volt">Fit n Fine</span>
           </span>
         </Link>
 
@@ -63,9 +65,6 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="text-sm text-white/60">
-            {site.phone}
-          </a>
           <Link href="/contact" className="btn-primary">
             Join Now
           </Link>

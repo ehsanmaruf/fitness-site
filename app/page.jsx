@@ -4,6 +4,7 @@ import About from "@/components/About";
 import TrainingCategories from "@/components/TrainingCategories";
 import ClassesList from "@/components/ClassesList";
 import Programs from "@/components/Programs";
+import Gallery from "@/components/Gallery";
 import Stats from "@/components/Stats";
 import Trainers from "@/components/Trainers";
 import Packages from "@/components/Packages";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <TrainingCategories />
       <ClassesList />
       <Programs />
+      <Gallery />
       <Stats />
       <Trainers />
       <Packages />
