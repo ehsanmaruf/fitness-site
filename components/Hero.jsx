@@ -93,7 +93,7 @@ export default function Hero() {
             variants={item}
             className="mt-7 max-w-xl text-lg leading-relaxed text-white/70"
           >
-            A complete fitness solution for men &amp; women. Air-conditioned gym,
+            A complete fitness solution for men &amp; women. Well-ventilated gym,
             latest equipment, full-time instructors and an every day steam bath.
             Weight loss, weight gain, body building — your goal, our mission.
           </motion.p>

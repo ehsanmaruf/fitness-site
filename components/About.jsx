@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import Reveal from "./Reveal";
 
 const points = [
-  "Fully air-conditioned gym",
+  "Well-ventilated gym",
   "Every day steam bath & shower",
   "Full-time instructors",
   "Separate ladies hour",

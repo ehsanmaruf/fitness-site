@@ -14,7 +14,7 @@ export const metadata = {
 };
 
 const schedule = [
-  { time: "6:30 AM – 2:00 PM", class: "Gents Hour", spots: "Combined" },
+  { time: "6:00 AM – 2:00 PM", class: "Gents Hour", spots: "Combined" },
   { time: "2:00 PM – 6:00 PM", class: "Ladies Hour", spots: "Ladies only" },
   { time: "6:00 PM – 11:00 PM", class: "Gents Hour", spots: "Combined" },
   { time: "Every Day", class: "Steam Bath", spots: "All members" },

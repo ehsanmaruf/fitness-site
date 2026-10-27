@@ -19,7 +19,7 @@ export default function Footer() {
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
             A complete fitness solution for men &amp; women in Nadda, Dhaka.
-            Air-conditioned gym, every day steam bath and full-time instructors.
+            Well-ventilated gym, every day steam bath and full-time instructors.
           </p>
           <div className="mt-6 flex gap-3">
             {site.socials.map((s) => (
